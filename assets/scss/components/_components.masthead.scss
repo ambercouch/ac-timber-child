@@ -1,0 +1,82 @@
+/*
+BEM BLOCK .c-masthead
+ */
+.c-masthead{
+  border-bottom:none;
+  width: 100%;
+  @extend .o-wrapper;
+  padding: $act-unit-h;
+  padding-bottom: $act-unit-t;
+  padding-top: $act-unit-t !important;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  &:after{
+    width: 100%;
+    order: 999;
+  }
+  &.has-before-widgets{
+    padding-top: 0;
+  }
+}
+
+/*
+BEM BLOCK MODIFIERS .c-masthead--
+ */
+[class*="c-masthead--"]{
+  @extend .c-masthead;
+}
+
+.c-masthead--{
+  &front-page{
+    background: transparent;
+    position: absolute;
+    z-index: 9999;
+  }
+}
+
+/*
+BEM ELEMENTS .c-masthead__
+ */
+.c-masthead__{
+  &site-title{
+    line-height: 1;
+  }
+  &navigation{
+    display: none;
+    @include mq($from : desktop){
+      display: flex;
+      align-items: center;
+    }
+  }
+  &widget-area{
+    width: 100%;
+  }
+  &branding{
+    background: transparent;
+    width: auto;
+    max-width: 100%;
+    margin-right: auto;
+    @include mq($from : desktop){
+      max-width: 100%;
+    }
+  }
+}
+
+[class*=c-masthead__widget-area--]{
+  @extend .c-masthead__widget-area
+}
+
+.c-masthead__widget-area--{
+  &masthead-before-widgets{
+    display: none;
+
+    @include mq($from: tablet){
+      display: block;
+      width: auto;
+      order: 4;
+      display: flex;
+      align-items: center;
+    }
+  }
+}

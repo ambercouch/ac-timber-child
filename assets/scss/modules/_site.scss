@@ -1,0 +1,79 @@
+/*
+  BEM BLOCK .site
+  #1 Fixes the horizontal scroll issue with width: 100vw when vertical scroll bars present
+  #2 Force the footer to the bottom of short pages
+ */
+
+.site{
+  /* #1 */
+  overflow: hidden;
+
+  /* #2 */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+}
+
+/*
+BEM ELEMENTS .site__
+ */
+.site__{
+  &masthead{
+    background: white;
+  }
+  &main{
+
+  }
+  &hero{
+    margin-bottom: $act-unit-l;
+    @include mq($from : tablet){
+      margin-bottom: 0;
+    }
+  }
+  &mobile-off-page{
+    transition: opacity 0.3s ease-in-out;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background: white;
+    z-index: 1000;
+    opacity: 0;
+
+    padding : $act-unit ;
+    padding-top: $act-unit-h;
+    &[data-state=off]{
+      opacity: 0 !important;
+      @include inuit-hidden-visually();
+    }
+    &[data-state=on]{
+      opacity: 1;
+    }
+    @include mq($from : desktop){
+      display: none !important;
+    }
+  }
+
+  &footer{
+
+    /* #2 */
+    margin-top: auto;
+    background: $brand-col-4;
+  }
+  &subsidiary{
+    background: $brand-col-3;
+  }
+}
+
+[class*=site__masthead--]{
+  @extend .site__masthead;
+}
+
+.site__masthead--overlay-hero{
+  .has-hero &{
+    position: relative;
+    z-index: 999;
+    height: 0;
+  }
+}

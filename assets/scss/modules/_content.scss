@@ -1,0 +1,22 @@
+.content{
+
+}
+
+.content{
+  &--feature-cats{
+
+    @include mq($from:desktop){
+      display: flex;
+    }
+  }
+
+}
+
+.content__{
+  &below{
+    margin-bottom: $act-unit;
+    @include mq($from : tablet){
+      margin-bottom: 0;
+    }
+  }
+}

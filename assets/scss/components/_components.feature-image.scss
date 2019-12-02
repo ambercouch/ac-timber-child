@@ -1,0 +1,44 @@
+ /*
+BEM BLOCK .c-feature-image
+ */
+.c-feature-image{
+  position: relative;
+}
+
+/*
+BEM BLOCK .c-feature-image--
+*/
+
+[class*='c-feature-image--']{
+  @extend .c-feature-image;
+}
+
+.c-feature-image--{
+  &service{
+    height: 100%;
+  }
+  &case-study{
+    width: $act-unit-h * 2;
+    max-width: 100%;
+  }
+}
+
+ /*
+BEM ELEMENTS.c-feature-image__
+ */
+
+.c-feature-image__{
+
+  &img{
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  &button{
+
+  }
+
+}
+

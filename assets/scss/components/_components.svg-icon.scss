@@ -1,0 +1,49 @@
+/*
+  BEM BLOCK .c-svg-icon
+ */
+
+.c-svg-icon {
+  @extend .o-svg-icon;
+  margin: 0 auto;
+}
+
+/*
+  BEM BLOCK MODIFIER .c-svg-icon--
+ */
+
+.c-svg-icon-- {
+  &testimonial-quote {
+    @include size($act-unit-l);
+    margin: $act-unit auto;
+  }
+}
+
+//BEM BLOCK MODIFIER FALLBACK .c-svg-icon--
+
+[class*=c-svg-icon--] {
+  @extend .c-svg-icon;
+}
+
+/*
+  BEM ELEMENTS .c-svg-icon__
+ */
+
+.c-svg-icon__ {
+ &svg{
+   @extend .o-svg-icon__svg;
+ }
+}
+
+//BEM ELEMENT MODIFIER FALLBACK .c-svg-icon--
+
+[class*=c-svg-icon__svg--] {
+  @extend .c-svg-icon__svg;
+}
+
+.c-svg-icon__svg--{
+  &testimonial-quote{
+    fill: $brand-col-2;
+    width: auto;
+    height: auto;
+  }
+}
